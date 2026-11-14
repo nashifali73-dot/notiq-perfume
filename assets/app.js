@@ -413,7 +413,7 @@
   document.addEventListener('click', function (e) {
     var t = e.target.closest('[data-add],[data-notify],[data-wish],[data-q],[data-rm],[data-open-cart],[data-close-cart],[data-close],[data-hfilter],[data-coltab],[data-reel],[data-scroll]');
     if (!t) return;
-    if (t.hasAttribute('data-add')) { e.preventDefault(); addToCart(t.getAttribute('data-add'), 1); }
+    if (t.hasAttribute('data-add')) { e.preventDefault(); addToCart(t.getAttribute('data-add'), 1); if (t.classList.contains('card__add')) { var ic = t.innerHTML; t.classList.add('is-added'); t.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'; setTimeout(function () { t.classList.remove('is-added'); t.innerHTML = ic; }, 1400); } }
     else if (t.hasAttribute('data-notify')) { e.preventDefault(); location.hash = '#/product/' + t.getAttribute('data-notify'); }
     else if (t.hasAttribute('data-wish')) {
       e.preventDefault(); var id = t.getAttribute('data-wish'); var i = wish.indexOf(id);
