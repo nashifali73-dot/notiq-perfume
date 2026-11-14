@@ -637,3 +637,6 @@ main:focus,main:focus-visible{outline:none}
 .hero__copy{border-radius:16px!important}
 .hero__tag{background:var(--glass-bg)!important;backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);box-shadow:var(--glass-shadow);color:#fff!important;text-shadow:0 1px 10px rgba(0,0,0,.3)}
 .card .card__tag,.card .card__wish{background:var(--glass-bg),rgba(18,18,20,.16)!important}
+/* Collections: no glass on labels */
+.col .col__label{background:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important;left:22px!important;right:22px!important;bottom:22px!important;text-shadow:0 1px 14px rgba(0,0,0,.4)!important}
+.col .col__label::after{display:none!important}
