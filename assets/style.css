@@ -489,3 +489,48 @@ main:focus,main:focus-visible{outline:none}
   .hero__title{font-size:30px}
 }
 @media (max-width:760px){.cols,.tiles,.reviews,.reels{scroll-padding-inline:var(--pad)}}
+
+/* ===== Glass product card (reference style) ===== */
+.card .card__bar{
+  background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.06)) ,rgba(22,18,16,.30);
+  backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);
+  border:1px solid rgba(255,255,255,.38);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(255,255,255,.08),0 10px 30px rgba(0,0,0,.18);
+  color:#fff;
+}
+.card .card__name{color:#fff;font-weight:600;letter-spacing:.03em;text-shadow:0 1px 8px rgba(0,0,0,.25)}
+.card .card__price{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.25)}
+.card .card__price s{color:rgba(255,255,255,.72)}
+.card .card__add{
+  background:rgba(255,255,255,.14);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1.5px solid rgba(255,255,255,.75);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 4px 14px rgba(0,0,0,.15);
+  color:#fff;
+  transition:background .25s,border-color .25s,transform .35s var(--ease)
+}
+.card .card__add svg{stroke-width:2.2}
+.card .card__add:hover{background:rgba(255,255,255,.95);color:#111;border-color:#fff;transform:rotate(90deg)}
+.card .card__add--soon{background:rgba(200,16,46,.55);border-color:rgba(255,255,255,.6)}
+.card .card__add--soon:hover{background:var(--red);color:#fff;transform:none}
+.card .card__wish{
+  background:rgba(255,255,255,.16);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45);
+  color:#fff
+}
+.card .card__wish:hover{background:rgba(255,255,255,.3)}
+.card .card__wish[aria-pressed="true"]{background:rgba(255,255,255,.92);color:var(--red)}
+.card .card__tag{
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.5);
+  color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.25)
+}
+.card .card__tag b{background:#ff4d63;box-shadow:0 0 8px rgba(255,77,99,.8)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .card .card__bar{background:rgba(22,18,16,.62)}
+  .card .card__add,.card .card__wish,.card .card__tag{background:rgba(22,18,16,.45)}
+}
+.card .card__tag,.card .card__wish{background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.04)),rgba(22,18,16,.26)}
