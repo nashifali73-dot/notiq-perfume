@@ -640,3 +640,10 @@ main:focus,main:focus-visible{outline:none}
 /* Collections: no glass on labels */
 .col .col__label{background:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important;left:22px!important;right:22px!important;bottom:22px!important;text-shadow:0 1px 14px rgba(0,0,0,.4)!important}
 .col .col__label::after{display:none!important}
+/* Hero: no glass */
+.hero .hero__title,.hero .hero__copy,.hero .hero__tag{background:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;border:0!important;text-shadow:none!important;padding:0!important;border-radius:0!important}
+.hero .hero__title::after,.hero .hero__copy::after{display:none!important}
+.hero .hero__title{color:#111!important}
+.hero .hero__copy{color:#2b2b2b!important;font-size:15px}
+.hero .hero__tag{color:var(--red)!important}
+.hero .hero__tag{background:#fff!important;padding:10px 14px!important;border-radius:14px!important;box-shadow:0 8px 24px -12px rgba(0,0,0,.35)!important}
