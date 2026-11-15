@@ -727,3 +727,83 @@ em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:40
   .hero__link{display:none}
   .hero .hero__copy{color:#2f251c!important}
 }
+
+/* ===== Elegant type + slightly tighter radius (layout unchanged) ===== */
+:root{--serif:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;--r-xl:24px;--r-lg:20px;--r-md:14px}
+em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0}
+body{font-weight:400;color:#141414}
+/* headings in serif */
+.h-sec{font-family:var(--serif);font-weight:500;font-size:clamp(40px,4.4vw,68px);letter-spacing:-.015em;line-height:1}
+.h-sec em{font-size:1em}
+.hero .hero__title{font-family:var(--serif);font-weight:500!important;font-size:clamp(60px,7.4vw,122px)!important;letter-spacing:-.025em!important;line-height:.9}
+.hero .hero__title em{font-size:1em;letter-spacing:-.02em}
+.buy__title,.page-title,.about-hero h1{font-family:var(--serif);font-weight:500;letter-spacing:-.02em}
+.buy__title{font-size:clamp(54px,6vw,88px)}
+.buy__title em,.page-title em,.about-hero h1 em{font-size:1em}
+.page-title{font-size:clamp(50px,6.6vw,92px)}
+.feature__big,.story__light h2{font-family:var(--serif);font-weight:600!important;letter-spacing:-.02em!important}
+.feature__big{font-size:clamp(64px,7.8vw,116px)}
+.col__label span{font-family:var(--serif)!important;font-weight:500!important;font-size:32px!important;letter-spacing:0!important}
+.card .card__name{font-family:var(--serif)!important;font-weight:600!important;font-size:18px!important;letter-spacing:.005em!important;line-height:1.1}
+.card .card__price{font-size:13.5px!important;font-weight:600!important;letter-spacing:.04em}
+.tile__pill{font-family:var(--serif);font-weight:600!important;font-size:23px!important}
+.tile__cap strong{font-family:var(--serif);font-weight:600;font-size:20px;text-transform:none;letter-spacing:0}
+.note span{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.01em;text-transform:none}
+.review h3,.upsell strong,.citem__name{font-family:var(--serif);font-weight:600}
+.review h3{font-size:22px}.upsell strong{font-size:19px!important}.citem__name{font-size:18px;text-transform:none}
+.story__dark p{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.15}
+.layer strong{font-family:var(--serif);font-weight:600;font-size:21px}
+.step h3{font-family:var(--serif);font-weight:600;font-size:24px;text-transform:none;letter-spacing:0}
+.step b{font-family:var(--serif);font-weight:500}
+.mnav a{font-family:var(--serif);font-weight:500;font-size:26px}
+.drawer__title{font-family:var(--serif);font-weight:600;font-size:24px;text-transform:none;letter-spacing:0}
+.buy__price strong{font-family:var(--serif);font-weight:600;font-size:38px;letter-spacing:0}
+.hero__meta span{font-family:var(--serif);font-size:19px;font-weight:600}
+.footer__mark{font-family:var(--serif);font-weight:500;letter-spacing:.02em}
+.shop-banner span{font-family:var(--serif);font-weight:500}
+/* refined small text */
+.nav{font-size:12px;letter-spacing:.14em}
+.logo{font-weight:700;letter-spacing:.26em}
+.eyebrow{letter-spacing:.28em;font-size:10.5px}
+.btn{letter-spacing:.16em;font-weight:600}
+.pill{letter-spacing:.13em;font-weight:600}
+.hero .hero__copy,.buy__lead,.sec__note{font-weight:400}
+.announce__track{letter-spacing:.2em;font-size:11px}
+/* radius: a touch tighter */
+.hero__box{border-radius:24px}
+.col,.tile,.tile--short{border-radius:20px}
+.card{border-radius:18px}
+.card .card__bar{border-radius:14px}
+.reel{border-radius:18px}
+.upsell{border-radius:18px}
+.perks span{border-radius:13px}
+.layer{border-radius:16px}
+.gal__thumbs button{border-radius:13px}
+.review img{border-radius:13px}
+.citem img{border-radius:11px}
+.search__panel{border-radius:0 0 22px 22px}
+.drawer--right .drawer__panel{border-radius:20px 0 0 20px}
+.drawer--left .drawer__panel{border-radius:0 20px 20px 0}
+/* quiet quality touches */
+.sec{padding-top:124px}
+.sec__head{margin-bottom:40px}
+.hero__box>img{animation:heroIn 1.6s var(--ease) forwards,nqDrift 28s ease-in-out 1.6s infinite alternate}
+@keyframes nqDrift{from{transform:scale(1)}to{transform:scale(1.05)}}
+.header{transition:box-shadow .4s}
+::selection{background:#111;color:#fff}
+html{scrollbar-color:#bbb transparent}
+@media (prefers-reduced-motion:reduce){.hero__box>img{animation:none}}
+@media (max-width:760px){
+  .sec{padding-top:76px}.sec__head{margin-bottom:22px}
+  .h-sec{font-size:38px}
+  .hero .hero__title{font-size:54px!important}
+  .buy__title{font-size:54px}.page-title{font-size:50px}
+  .feature__big{font-size:64px}
+  .card .card__name{font-size:15px!important}
+  .card{border-radius:15px}.card .card__bar{border-radius:11px}
+  .hero__box,.feature,.gal__main,.shop-banner,.about-hero{border-radius:18px}
+  .col,.col.is-on,.tile,.tile--short{border-radius:17px}
+  .tile__pill{font-size:20px!important}
+  .story__dark p{font-size:26px}
+  .col__label span{font-size:27px!important}
+}
