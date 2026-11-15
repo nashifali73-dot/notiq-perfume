@@ -807,3 +807,16 @@ html{scrollbar-color:#bbb transparent}
   .story__dark p{font-size:26px}
   .col__label span{font-size:27px!important}
 }
+
+/* UGC videos under Add to bag */
+.ugc{display:flex;flex-direction:column;gap:12px}
+.ugc__head{display:flex;justify-content:space-between;align-items:baseline}
+.ugc__sub{font-size:12.5px;color:var(--ink-3)}
+.ugc__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ugc__item{border-radius:14px;cursor:pointer}
+.ugc__item video{width:100%;height:100%;object-fit:cover;display:block;background:#eee}
+.ugc__item button{width:46px;height:46px;transition:transform .3s var(--smooth),opacity .3s}
+.ugc__item button svg{width:15px;height:15px}
+.ugc__item.is-playing button{opacity:0}
+.ugc__item.is-playing:hover button{opacity:1}
+@media (max-width:760px){.ugc__row{display:grid}.ugc__item{flex:none}}

@@ -266,6 +266,23 @@
       '<div class="grid">' + (list.length ? list.map(card).join('') : '<p class="muted">Nothing here yet.</p>') + '</div></div>';
   }
 
+  /* UGC videos under Add to bag. Put .mp4 files in /videos and list them per product in UGC below
+     (src: 'videos/your-file.mp4'). Until a src is set, the tile shows the poster image only. */
+  var UGC = {
+    'scarlet-oud': [{ poster: 'scarlet-hand.jpg', src: '' }, { poster: 'model-her.jpg', src: '' }, { poster: 'scarlet-vanity.jpg', src: '' }],
+    'citruz-breez': [{ poster: 'model-him.jpg', src: '' }, { poster: 'citruz-sunlit.jpg', src: '' }, { poster: 'citruz-studio.jpg', src: '' }],
+    'notiq-duo': [{ poster: 'duo-stone.jpg', src: '' }, { poster: 'model-her.jpg', src: '' }, { poster: 'model-him.jpg', src: '' }],
+    'gift-box': [{ poster: 'gift-box.jpg', src: '' }, { poster: 'duo-stone.jpg', src: '' }, { poster: 'duo-studio.jpg', src: '' }]
+  };
+  function ugcBlock(p) {
+    var list = UGC[p.id]; if (!list || !list.length) return '';
+    return '<div class="ugc"><div class="ugc__head"><span class="label">See it in real life</span><span class="ugc__sub">Customer videos</span></div><div class="ugc__row">' +
+      list.map(function (v, i) {
+        return '<div class="reel ugc__item"><video playsinline muted loop preload="none" poster="' + IMG + v.poster + '"' + (v.src ? ' src="' + v.src + '"' : '') + ' aria-label="Customer video ' + (i + 1) + ' for ' + esc(p.name) + '"></video>' +
+          '<button data-ugc aria-label="Play customer video ' + (i + 1) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></button></div>';
+      }).join('') + '</div></div>';
+  }
+
   function pageProduct(id) {
     var p = byId[id]; if (!p) return pageNotFound();
     var acc = [
@@ -301,6 +318,7 @@
           '<div class="buy__row"><div class="qty qty--lg" role="group" aria-label="Quantity"><button data-pq="-1" aria-label="Decrease quantity">−</button><span id="pq" aria-live="polite">1</span><button data-pq="1" aria-label="Increase quantity">+</button></div>' +
           '<button class="btn btn--dark" id="pdpAdd">Add to bag<span class="px"> · <span id="pqTotal">' + money(p.price) + '</span></span> <span class="dot">' + arrow + '</span></button></div>' +
           '<button class="btn btn--ghost btn--block" id="buyNow">Buy it now</button>' +
+          ugcBlock(p) +
           '<a class="upsell" href="#/product/' + upsell.id + '"><img src="' + IMG + upsell.images[0] + '" alt=""><span><span class="kicker" style="font-size:10.5px">Pair &amp; save</span><strong style="font-size:15px">' + esc(upsell.name) + '</strong><span style="font-size:12.5px;color:#555">' + esc(upsell.size) + ' · ' + money(upsell.price) + '</span></span><span class="card__add" data-add="' + upsell.id + '" role="button" tabindex="0" aria-label="Add ' + esc(upsell.name) + ' to bag">' + plus + '</span></a>' +
           '<form id="pinForm" style="display:flex;flex-direction:column;gap:10px"><label class="label" for="pin">Check delivery</label><div class="pin"><input id="pin" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit pincode"><button>Check</button></div><p class="pin__msg" id="pinMsg" aria-live="polite"></p></form>' +
           '<div class="perks"><span>Free<br>shipping</span><span>30% oil<br>Extrait</span><span>[COD<br>available]</span></div>') +
@@ -415,7 +433,7 @@
 
   /* ---------------- global events ---------------- */
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-add],[data-notify],[data-wish],[data-q],[data-rm],[data-open-cart],[data-close-cart],[data-close],[data-hfilter],[data-coltab],[data-reel],[data-scroll]');
+    var t = e.target.closest('[data-add],[data-notify],[data-wish],[data-q],[data-rm],[data-open-cart],[data-close-cart],[data-close],[data-hfilter],[data-coltab],[data-reel],[data-ugc],[data-scroll]');
     if (!t) return;
     if (t.hasAttribute('data-add')) { e.preventDefault(); addToCart(t.getAttribute('data-add'), 1); if (t.classList.contains('card__add')) { var ic = t.innerHTML; t.classList.add('is-added'); t.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'; setTimeout(function () { t.classList.remove('is-added'); t.innerHTML = ic; }, 1400); } }
     else if (t.hasAttribute('data-notify')) { e.preventDefault(); location.hash = '#/product/' + t.getAttribute('data-notify'); }
@@ -438,6 +456,12 @@
     }
     else if (t.hasAttribute('data-coltab')) setCol(+t.getAttribute('data-coltab'));
     else if (t.hasAttribute('data-reel')) toast('Connect your Instagram reels here');
+    else if (t.hasAttribute('data-ugc')) {
+      var box = t.parentNode, vid = box.querySelector('video');
+      if (!vid.getAttribute('src')) { toast('Video coming soon'); return; }
+      $$('.ugc__item.is-playing video').forEach(function (o) { if (o !== vid) { o.pause(); o.parentNode.classList.remove('is-playing'); } });
+      if (vid.paused) { vid.muted = false; vid.play(); box.classList.add('is-playing'); } else { vid.pause(); box.classList.remove('is-playing'); }
+    }
     else if (t.hasAttribute('data-scroll')) { e.preventDefault(); var el = document.getElementById(t.getAttribute('data-scroll')); if (el) el.scrollIntoView({ behavior: 'smooth' }); }
   });
   function setCol(i) {
