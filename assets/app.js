@@ -182,14 +182,18 @@
     return '' +
     '<section class="hero"><div class="hero__box">' +
       '<img src="' + IMG + 'hero-duo.jpg" alt="Scarlet Oud and Citruz Breez on travertine stands in warm window light" fetchpriority="high">' +
-      '<div class="hero__in"><div class="hero__top"><div class="hero__left">' +
-        '<h1 class="hero__title">Limited Edition<br>Extrait</h1>' +
-        '<a class="btn btn--dark" href="#/shop" style="align-self:flex-start">Shop collection <span class="dot">' + arrow + '</span></a>' +
-      '</div><p class="hero__tag">Bold by nature.<br>Bottled at 30%.</p></div>' +
-      '<div class="hero__bottom"><p class="hero__copy">Scarlet Oud and Citruz Breez — hand-blended, slow-matured, chilled and filtered.</p></div></div>' +
+      '<div class="hero__in">' +
+        '<div class="hero__content">' +
+          '<span class="eyebrow">Extrait de Parfum · Collection N°01</span>' +
+          '<h1 class="hero__title">Limited<br><em>Edition</em> Extrait</h1>' +
+          '<p class="hero__copy">Scarlet Oud and Citruz Breez. Hand-blended at 30% oil, slow-matured, chilled and filtered.</p>' +
+          '<div class="hero__ctas"><a class="btn btn--dark" href="#/shop">Shop collection <span class="dot">' + arrow + '</span></a><a class="hero__link" href="#/about">Our process</a></div>' +
+        '</div>' +
+        '<div class="hero__meta"><a href="#/product/scarlet-oud"><b>N°01</b><span>Scarlet Oud</span><small>Oud · Rose</small></a><a href="#/product/citruz-breez"><b>N°02</b><span>Citruz Breez</span><small>Citrus · Fresh</small></a></div>' +
+      '</div>' +
     '</div></section>' +
 
-    '<section class="sec rv" aria-labelledby="h-cols"><div class="sec__head"><h2 class="h-sec" id="h-cols">Crafted for the modern senses</h2>' +
+    '<section class="sec rv" aria-labelledby="h-cols"><div class="sec__head"><div class="sec__title"><span class="eyebrow">01 — Collections</span><h2 class="h-sec" id="h-cols">Crafted for the <em>modern senses</em></h2></div>' +
       '<p class="sec__note">Four edits, one signature. Dark and smoky, bright and fresh, made to gift, and what is next.</p></div>' +
       '<div class="cols" id="cols">' + COLS.map(function (c, i) {
         return '<a class="col' + (i === 0 ? ' is-on' : '') + '" data-col="' + i + '" href="#/shop?f=' + c.f + '"><img src="' + IMG + c.img + '" alt="' + c.label + '" loading="lazy"><span class="col__label"><small>' + c.kicker + '</small><span>' + c.label + '</span></span></a>';
@@ -199,42 +203,42 @@
       }).join('') + '</div></section>' +
 
     '<section class="sec rv"><div class="feature"><div class="feature__txt">' +
-      '<span class="kicker">The signature</span><h2 class="feature__big">SCARLET<br>OUD</h2>' +
+      '<span class="eyebrow">The signature · N°01</span><h2 class="feature__big">SCARLET<br>OUD</h2>' +
       '<svg class="swoosh" viewBox="0 0 360 60" aria-hidden="true"><path d="M4 44C70 30 150 16 220 22c40 4 70 14 132 2"/></svg>' +
       '<p class="feature__sub">Your scent. Your rhythm. Your every night.</p>' +
       '<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px"><a class="btn btn--dark" href="#/product/scarlet-oud">Shop now — ' + money(byId['scarlet-oud'].price) + ' <span class="dot">' + arrow + '</span></a><span style="font-size:13px;color:#555">75 ml · Extrait de Parfum</span></div>' +
     '</div><div class="feature__img"><img src="' + IMG + 'scarlet-dark.jpg" alt="Scarlet Oud on dark marble with smoke" loading="lazy"></div></div></section>' +
 
-    '<section class="sec" aria-labelledby="h-new"><div class="sec__head rv"><h2 class="h-sec" id="h-new">New and popular</h2>' +
+    '<section class="sec" aria-labelledby="h-new"><div class="sec__head rv"><div class="sec__title"><span class="eyebrow">02 — The bestsellers</span><h2 class="h-sec" id="h-new">New and <em>popular</em></h2></div>' +
       '<div style="display:flex;gap:6px;flex-wrap:wrap" role="tablist">' +
         [['all', 'All'], ['oud', 'Oud'], ['fresh', 'Fresh'], ['sets', 'Sets'], ['soon', 'Coming soon']].map(function (f, i) {
           return '<button class="pill' + (i === 0 ? ' is-on' : '') + '" role="tab" aria-selected="' + (i === 0) + '" data-hfilter="' + f[0] + '">' + f[1] + '</button>';
         }).join('') + '<a class="pill pill--outline" href="#/shop">View all ↗</a></div></div>' +
       '<div class="grid" id="homeGrid">' + PRODUCTS.map(card).join('') + '</div></section>' +
 
-    '<section class="sec rv" aria-labelledby="h-rit"><div class="sec__head"><h2 class="h-sec" id="h-rit">Build your ritual</h2><p class="sec__note">Day and night, boxed together. Pick your pair and save on the set.</p></div>' +
+    '<section class="sec rv" aria-labelledby="h-rit"><div class="sec__head"><div class="sec__title"><span class="eyebrow">03 — Sets &amp; bundles</span><h2 class="h-sec" id="h-rit">Build your <em>ritual</em></h2></div><p class="sec__note">Day and night, boxed together. Pick your pair and save on the set.</p></div>' +
       '<div class="tiles">' +
         '<a class="tile" href="#/product/citruz-breez"><img src="' + IMG + 'citruz-studio.jpg" alt="Citruz Breez" loading="lazy"><span class="tile__cap"><strong>Citruz Breez</strong><span>For the bright hours</span></span></a>' +
         '<a class="tile" href="#/product/notiq-duo"><img src="' + IMG + 'duo-stone.jpg" alt="The Notiq Duo" loading="lazy"><span class="tile__cap"><strong>The Notiq Duo</strong><span>2 × 75 ml · ' + money(byId['notiq-duo'].price) + '</span></span><span class="btn btn--red">Build bundle <span class="dot">' + arrow + '</span></span></a>' +
         '<a class="tile" href="#/product/gift-box"><img src="' + IMG + 'gift-box.jpg" alt="The Gift Box" loading="lazy"><span class="tile__cap"><strong>The Gift Box</strong><span>Ready to give · ' + money(byId['gift-box'].price) + '</span></span></a>' +
       '</div></section>' +
 
-    '<section class="sec rv" aria-labelledby="h-gen"><div class="sec__head"><h2 class="h-sec" id="h-gen">Shop by gender</h2></div><div class="tiles">' +
+    '<section class="sec rv" aria-labelledby="h-gen"><div class="sec__head"><div class="sec__title"><span class="eyebrow">04 — For everyone</span><h2 class="h-sec" id="h-gen">Shop by <em>gender</em></h2></div></div><div class="tiles">' +
       [['For Him', 'model-him.jpg', 'citruz-breez'], ['For Her', 'model-her.jpg', 'scarlet-oud'], ['Unisex', 'duo-studio.jpg', 'notiq-duo']].map(function (g) {
         return '<a class="tile tile--short" href="#/product/' + g[2] + '"><img src="' + IMG + g[1] + '" alt="Fragrances ' + g[0].toLowerCase() + '" loading="lazy"><span class="tile__pill">' + g[0] + '<span class="dot">' + arrow + '</span></span></a>';
       }).join('') + '</div></section>' +
 
-    '<section class="sec rv" aria-labelledby="h-reel"><div class="sec__head"><h2 class="h-sec" id="h-reel">See what the hype is about</h2><span class="sec__note">@notiq [handle]</span></div><div class="reels">' +
+    '<section class="sec rv" aria-labelledby="h-reel"><div class="sec__head"><div class="sec__title"><span class="eyebrow">05 — On Instagram</span><h2 class="h-sec" id="h-reel">See what the <em>hype</em> is about</h2></div><span class="sec__note">@notiq [handle]</span></div><div class="reels">' +
       ['scarlet-hand.jpg', 'scarlet-vanity.jpg', 'scarlet-dark.jpg', 'citruz-sunlit.jpg', 'model-her.jpg'].map(function (r) {
         return '<div class="reel"><img src="' + IMG + r + '" alt="Reel cover" loading="lazy"><button aria-label="Play reel" data-reel><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></button></div>';
       }).join('') + '</div></section>' +
 
-    '<section class="sec rv" aria-labelledby="h-notes"><div class="sec__head"><h2 class="h-sec" id="h-notes">Shop by note profile</h2></div><div class="notes">' +
+    '<section class="sec rv" aria-labelledby="h-notes"><div class="sec__head"><div class="sec__title"><span class="eyebrow">06 — Find your scent</span><h2 class="h-sec" id="h-notes">Shop by <em>note</em></h2></div></div><div class="notes">' +
       [['Oud', 'oud', 'oud'], ['Rose', 'rose', 'oud'], ['Citrus', 'citrus', 'fresh'], ['Fresh', 'fresh', 'fresh'], ['Woody', 'woody', 'oud']].map(function (n) {
         return '<a class="note" href="#/shop?f=' + n[2] + '"><img src="' + IMG + 'note-' + n[1] + '.jpg" alt="' + n[0] + ' note" loading="lazy"><span>' + n[0] + ' <span class="dot">' + arrow + '</span></span></a>';
       }).join('') + '</div></section>' +
 
-    '<section class="sec rv" aria-labelledby="h-rev"><div class="sec__head"><h2 class="h-sec" id="h-rev">Loved by [X]+ customers</h2><span class="sec__note">[x.x] ★ average · [N] verified reviews</span></div><div class="reviews">' +
+    '<section class="sec rv" aria-labelledby="h-rev"><div class="sec__head"><div class="sec__title"><span class="eyebrow">07 — Reviews</span><h2 class="h-sec" id="h-rev">Loved by [X]+ <em>customers</em></h2></div><span class="sec__note">[x.x] ★ average · [N] verified reviews</span></div><div class="reviews">' +
       [['scarlet-oud'], ['citruz-breez'], ['notiq-duo']].map(function (r) {
         var p = byId[r[0]];
         return '<article class="review"><img src="' + IMG + p.images[0] + '" alt="' + esc(p.name) + '" loading="lazy"><div><span class="kicker">' + esc(p.name) + '</span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><h3>[Review headline]</h3><p>[Real customer review text goes here.]</p><p style="margin-top:auto;font-weight:600;font-size:12px">[Name] · Verified purchase</p></div></article>';
@@ -249,7 +253,7 @@
     if (sort === 'low') list = list.slice().sort(function (a, b) { return (a.price || 9e9) - (b.price || 9e9); });
     if (sort === 'high') list = list.slice().sort(function (a, b) { return (b.price || 0) - (a.price || 0); });
     return '<div class="page-head"><nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>Shop</span></nav>' +
-      '<h1 class="page-title">' + (titles[f] || 'Shop') + '</h1>' +
+      '<span class="eyebrow" style="margin-top:18px">Shop · ' + list.length + ' fragrance' + (list.length === 1 ? '' : 's') + '</span><h1 class="page-title">' + (titles[f] || 'Shop').replace(/(\S+)$/, '<em>$1</em>') + '</h1>' +
       '<div class="shop-banner rv"><img src="' + IMG + (banners[f] || banners.all) + '" alt=""><span>' + (titles[f] || '') + '</span></div>' +
       '<div class="shop-bar"><div class="shop-bar__filters" role="tablist">' +
         [['all', 'All'], ['new', 'New'], ['oud', 'Oud'], ['fresh', 'Fresh'], ['sets', 'Sets'], ['soon', 'Coming soon']].map(function (x) {
@@ -287,8 +291,8 @@
           '<div class="gal__dots">' + p.images.map(function (x, i) { return '<i class="' + (i === 0 ? 'on' : '') + '"></i>'; }).join('') + '</div>' +
         '</div></div>' +
       '<div class="buy">' +
-        '<div style="display:flex;flex-direction:column;gap:12px"><span class="kicker">' + esc(p.type) + ' · ' + esc(p.size) + ' · ' + esc(p.who) + '</span>' +
-          '<h1 class="buy__title">' + esc(p.name) + '</h1><p class="buy__lead">' + esc(p.lead) + '</p>' +
+        '<div style="display:flex;flex-direction:column;gap:12px"><span class="eyebrow eyebrow--red">' + esc(p.type) + ' · ' + esc(p.size) + ' · ' + esc(p.who) + '</span>' +
+          '<h1 class="buy__title">' + esc(p.name).replace(/(\S+)$/, '<em>$1</em>') + '</h1><p class="buy__lead">' + esc(p.lead) + '</p>' +
           '<a href="#reviews" data-scroll="reviews" style="font-size:13.5px;color:#333"><span class="stars" aria-hidden="true">★★★★★</span> [x.x] · [N] reviews</a></div>' +
         (p.soon ? '<div class="buy__price"><strong>Launching soon</strong></div>' :
           '<div class="buy__price"><strong>' + money(p.price) + '</strong>' + (p.mrp ? '<s>' + money(p.mrp) + '</s><span class="save">SAVE ' + save + '%</span>' : '') + '<span style="flex-basis:100%;font-size:12.5px;color:#6b6b6b">Inclusive of all taxes · Free shipping</span></div>') +
@@ -311,18 +315,18 @@
         '<div style="display:flex;flex-direction:column;gap:10px">' + p.pyramid.map(function (x) { return '<div class="layer"><img src="' + IMG + x[2] + '" alt=""><span><small>' + x[0].toUpperCase() + '</small><strong>' + esc(x[1]) + '</strong></span></div>'; }).join('') + '</div></div>' +
     '</div></section>' : '') +
 
-    '<section class="sec rv" id="reviews"><div class="sec__head"><h2 class="h-sec">Customer reviews</h2><a class="btn btn--dark" href="#/about" style="height:46px">Write a review <span class="dot">' + arrow + '</span></a></div>' +
+    '<section class="sec rv" id="reviews"><div class="sec__head"><div class="sec__title"><span class="eyebrow">Reviews</span><h2 class="h-sec">Customer <em>reviews</em></h2></div><a class="btn btn--dark" href="#/about" style="height:46px">Write a review <span class="dot">' + arrow + '</span></a></div>' +
       '<div class="reviews">' + [1, 2, 3].map(function () { return '<article class="review" style="background:#fff;border:1px solid #ededed"><div><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><h3>[Review title]</h3><p>[Review text from a real customer.]</p><p style="font-weight:600;font-size:12px">[Customer name] · <span style="color:#2e7d32">✓ Verified</span></p></div></article>'; }).join('') + '</div></section>' +
 
-    '<section class="sec"><div class="sec__head rv"><h2 class="h-sec">You may also like</h2><a class="pill pill--outline" href="#/shop">View all ↗</a></div><div class="grid">' + related.map(card).join('') + '</div></section>' +
+    '<section class="sec"><div class="sec__head rv"><div class="sec__title"><span class="eyebrow">More from Notiq</span><h2 class="h-sec">You may also <em>like</em></h2></div><a class="pill pill--outline" href="#/shop">View all ↗</a></div><div class="grid">' + related.map(card).join('') + '</div></section>' +
 
     (p.soon ? '' : '<div class="sticky-buy" id="stickyBuy"><img src="' + IMG + p.images[0] + '" alt=""><span><strong>' + esc(p.name) + '</strong>' + money(p.price) + ' · ' + esc(p.size) + '</span><button class="btn btn--dark" data-add="' + p.id + '">Add to bag <span class="dot">' + arrow + '</span></button></div>');
   }
 
   function pageAbout() {
     return '<div class="page-head"><nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>Our story</span></nav>' +
-      '<div class="about-hero rv" style="margin-top:20px"><img src="' + IMG + 'duo-stone.jpg" alt="Notiq bottles on stone in sunlight"><div><span class="kicker" style="color:#fff">Our story</span><h1>Made slow.<br>Worn loud.</h1></div></div></div>' +
-      '<section class="sec rv"><div class="sec__head"><h2 class="h-sec">How every bottle is made</h2><p class="sec__note">No shortcuts between the oil and your skin.</p></div><div class="steps">' +
+      '<div class="about-hero rv" style="margin-top:20px"><img src="' + IMG + 'duo-stone.jpg" alt="Notiq bottles on stone in sunlight"><div><span class="kicker" style="color:#fff">Our story</span><h1>Made <em>slow.</em><br>Worn <em>loud.</em></h1></div></div></div>' +
+      '<section class="sec rv"><div class="sec__head"><div class="sec__title"><span class="eyebrow">The process</span><h2 class="h-sec">How every bottle is <em>made</em></h2></div><p class="sec__note">No shortcuts between the oil and your skin.</p></div><div class="steps">' +
         [['01', 'Measured', 'Every batch is blended at 30% fragrance oil, Extrait de Parfum strength.'],
          ['02', 'Matured', 'The blend rests for weeks so the notes settle and deepen.'],
          ['03', 'Chilled & filtered', 'Cold-rested and filtered for a clear, stable, crystal finish.'],
